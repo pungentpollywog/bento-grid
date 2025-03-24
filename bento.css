@@ -1,0 +1,232 @@
+:root {
+  --bg01: hsl(180, 4%, 95%);
+  --bg02: hsl(0, 0%, 100%);
+
+  --text01: hsl(150, 100%, 99%);
+  --text02: hsl(0, 0%, 7%);
+
+  --primary01: hsl(254, 88%, 90%);
+  --primary02: hsl(256, 67%, 59%);
+
+  --secondary01: hsl(31, 66%, 93%);
+  --secondary02: hsl(39, 100%, 71%);
+
+  --gap-size: 1.5rem;
+}
+
+body {
+  background-color: var(--bg01);
+  margin: auto;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 16rem);
+  grid-template-rows: 1.25fr repeat(2, 15rem);
+  grid-template-areas:
+    'content  faster     faster   sched'
+    'content  platforms  posting  sched'
+    'content  audience   grow     grow';
+  gap: var(--gap-size);
+  justify-content: center;
+  margin: 4rem;
+}
+
+.content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  & > * {
+    flex: 1;
+  }
+  gap: var(--gap-size);
+}
+
+section:where(:not(.content)) {
+  border-radius: 10px;
+  padding: 0 1.5rem 1rem;
+  overflow-x: clip;
+}
+
+h1 {
+  margin: 1.5rem 0;
+}
+
+.content h2 {
+  max-width: 7ch;
+}
+
+h3 {
+  max-width: 9ch;
+  margin: 1.5rem 0 1rem;
+}
+
+.create-content {
+  background-color: var(--secondary01);
+  h2 {
+    margin-top: 5rem;
+    letter-spacing: -2.25px;
+  }
+  img {
+    max-width: 11rem;
+  }
+  .highlight {
+    color: var(--primary02);
+    font-style: italic;
+  }
+}
+
+.faster-with-ai,
+.grow-followers {
+  background-color: var(--primary02);
+  color: var(--text01);
+}
+
+.faster-with-ai {
+  grid-area: faster;
+  text-align: center;
+  .highlight {
+    color: var(--secondary02);
+  }
+  padding: 2rem;
+
+  img {
+    max-width: 11rem;
+  }
+  p {
+    margin-top: 0.5rem;
+    color: var(--primary01);
+  }
+}
+
+.schedule-to-social {
+  background-color: var(--primary01);
+  grid-area: sched;
+  img {
+    max-width: 23rem;
+  }
+  padding-top: 1rem;
+}
+
+.faster-growth {
+  grid-area: audience;
+  img {
+    max-width: 11rem;
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  p {
+    margin: 0.75rem 0 2rem;
+  }
+}
+
+.manage-multiple,
+.faster-growth {
+  background-color: var(--bg02);
+}
+
+.consistent-posting,
+.write-content {
+  background-color: var(--secondary02);
+}
+
+.grow-followers {
+  grid-area: grow;
+}
+
+.write-content {
+  img {
+    max-width: 13.5rem;
+  }
+  padding-right: 0.5rem;
+}
+
+.manage-multiple {
+  img {
+    max-width: 20rem;
+    padding: 1rem 0;
+  }
+  h3 {
+    margin: 0;
+  }
+}
+
+.consistent-posting {
+  overflow: clip;
+  img {
+    max-width: 13rem;
+  }
+}
+
+.grow-followers {
+  display: flex;
+  padding: 1.5rem;
+  h2 {
+    padding: 1.25rem 0 0 1.25rem;
+  }
+}
+
+@media (max-width: 460px) {
+  p {
+    font-size: 1.4rem;
+  }
+
+  main {
+    grid-template-columns: 100%;
+    grid-template-rows: fit-content(13rem);
+    grid-template-areas:
+      'faster'
+      'platforms'
+      'posting'
+      'sched'
+      'grow'
+      'audience'
+      'content';
+    margin: 1rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    max-width: none;
+  }
+
+  .faster-with-ai {
+    img {
+      max-width: 15rem;
+    }
+  }
+  .manage-multiple,
+  .schedule-to-social {
+    img {
+      max-width: 100%;
+    }
+  }
+  .consistent-posting {
+    h3 {
+      max-width: 13ch;
+    }
+    img {
+      max-width: 15rem;
+    }
+    max-height: 15rem;
+  }
+
+  .grow-followers {
+    flex-direction: column;
+    padding: 4rem;
+    text-align: center;
+  }
+
+  .content h2 {
+    margin-top: 2rem;
+    max-width: 12ch;
+  }
+  .create-content img {
+      max-width: 14rem;
+  }
+  .write-content img {
+    max-width: 15.5rem;
+  }
+}
