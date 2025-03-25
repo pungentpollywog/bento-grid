@@ -168,7 +168,7 @@ h3 {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 460px) {
   main {
     grid-template-columns: 100%;
     grid-template-rows: fit-content(13rem);
@@ -193,6 +193,10 @@ h3 {
   }
 
   .faster-with-ai {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     img {
       max-width: 12rem;
     }
