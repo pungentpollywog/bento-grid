@@ -21,7 +21,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: repeat(4, 16rem);
+  grid-template-columns: repeat(4, minmax(16rem, 1fr));
   grid-template-rows: 1.25fr repeat(2, 15rem);
   grid-template-areas:
     'content  faster     faster   sched'
@@ -29,7 +29,11 @@ main {
     'content  audience   grow     grow';
   gap: var(--gap-size);
   justify-content: center;
-  margin: 4rem;
+  margin:  auto;
+  min-width: 375px;
+  max-width: 1350px;
+  padding: 4rem;
+
 }
 
 .content {
@@ -165,6 +169,33 @@ h3 {
   padding: 1.5rem;
   h2 {
     padding: 1.25rem 0 0 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: repeat(3, minmax(16rem, 1fr));
+    grid-template-rows: 1.25fr repeat(3, 15rem);
+    grid-template-areas:
+      'faster  faster     sched'
+      'content  platforms  sched'
+      'content  audience   posting'
+      'content  grow       grow';
+      padding: 4rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, minmax(16rem, 1fr));
+    grid-template-rows: repeat(4, fit-content(15rem)) repeat(2, 15rem);
+    grid-template-areas:
+      'faster   faster'
+      'content  sched'
+      'content  sched'
+      'content  platforms'
+      'audience posting'
+      'grow     grow';
   }
 }
 
